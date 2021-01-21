@@ -2,12 +2,14 @@ import PostListItem from "../post-list-item";
 
 import "./post-list.css";
 
-const PostList = () => {
+const PostList = ({ data }) => {
   return (
     <ul className="app-list list-group">
-      <PostListItem />
-      <PostListItem />
-      <PostListItem />
+      {data.map(({ label, important }, i) => (
+        <li key={i} className="list-group-item">
+          <PostListItem label={label} important={important} />
+        </li>
+      ))}
     </ul>
   );
 };
